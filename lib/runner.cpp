@@ -200,7 +200,7 @@ int waitUntilProcessEnd(ProcessHandle *handle, int *exit_code) {
             code = WEXITSTATUS(status);
         } else if (WIFSIGNALED(status)) {
             // WIFSIGNALED(status) - возвращает сигнал например SIGKILL или SIGSEGV
-            code = -WTERMSIG(status); // со знаком - тк ошибка
+            code = -WTERMSIG(status); // со знаком - обозначим что завершено сигналом
         } else {
             code = -1;
         }

@@ -54,3 +54,46 @@ return:
    void
 ```
 
+## Запуск
+1. Сборка CMake
+```bash
+rm -rf build # если до этого делали сборку
+mkdir build
+cd build
+cmake ..
+cmake --build .
+```
+
+2. Запуск(Пример)
+```bash
+./parent ./child ./child 
+```
+
+```
+# Пример вывода
+[Parent] Starting CHILD PROCESS A with arg: 2
+[Parent] Starting CHILD PROCESS B with arg: 4
+[Parent] ALL CHILD PROCESS successfully started
+[Child A] START CHILD PROCESS for 2 sec
+[Child B] START CHILD PROCESS for 4 sec
+[Parent] PARENT PROCESS progress 0/5
+[Parent] PARENT PROCESS progress 1/5
+[Child B] PROGRESS 0/4
+[Child A] PROGRESS 0/2
+[Parent] PARENT PROCESS progress 2/5
+[Parent] PARENT PROCESS progress 3/5
+[Child B] PROGRESS 1/4
+[Child A] PROGRESS 1/2
+[Parent] PARENT PROCESS progress 4/5
+[Parent] PARENT PROCESS progress 5/5
+[Parent] WAIT until children finish...
+[Child B] PROGRESS 2/4
+[Child A] PROGRESS 2/2
+[Child A] FINISH PROCESS with code = 2
+[Parent] CHILD PROCESS A finished with exit code 2
+[Child B] PROGRESS 3/4
+[Child B] PROGRESS 4/4
+[Child B] FINISH PROCESS with code = 4
+[Parent] CHILD PROCESS B finished with exit code 4
+[Parent] All CHILD PROCESSES finished. Parent exiting.
+```
