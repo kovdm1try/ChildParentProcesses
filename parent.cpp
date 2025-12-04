@@ -7,9 +7,9 @@ using namespace std;
     #include <windows.h>
     void msleep(unsigned ms) { Sleep(ms); }
 #else
-#include <unistd.h>
-void msleep(unsigned ms) { usleep(ms * 1000); }
-// умножаем на 1000 т.к. usleep принимает на вход МИКРОсекунды
+    #include <unistd.h>
+    void msleep(unsigned ms) { usleep(ms * 1000); }
+    // умножаем на 1000 т.к. usleep принимает на вход МИКРОсекунды
 #endif
 
 int main(int argc, char *argv[]) {
@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
 
 
     for (int i = 0; i <= 5; i++) {
-        msleep(500);
+        msleep(350);
         cout << "[Parent] PARENT PROCESS progress " << i << "/5" << endl;
     }
     cout << "[Parent] WAIT until children finish...\n";
